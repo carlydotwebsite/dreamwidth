@@ -120,10 +120,10 @@ sub auto_linkify {
     my $match = sub {
         my $str = shift;
         if ( $str =~ /^(.*?)(&(#39|quot|lt|gt)(;.*)?)$/ ) {
-            return "<a href='$1'>$1</a>$2";
+            return "<a href='$1' rel='ugc'>$1</a>$2";
         }
         else {
-            return "<a href='$str'>$str</a>";
+            return "<a href='$str' rel='ugc'>$str</a>";
         }
     };
     $str =~ s!(https?://[^\s\'\"\<\>]+[a-zA-Z0-9_/&=\-])! $match->( $1 ); !ge
